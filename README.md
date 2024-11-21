@@ -1,14 +1,14 @@
 $ sudo apt install wine64
 
-$ wget -nc https://dl.winehq.org/wine-builds/winehq.key
-
-$ sudo apt-key add winehq.key
-
 $ sudo dpkg --add-architecture i386
 
-$ wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+$ sudo mkdir -pm755 /etc/apt/keyrings
 
-$ sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ jammy main'
+$ sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+
+$ sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+
+$ sudo apt update
 
 $ sudo apt install --install-recommends winehq-stable
 
